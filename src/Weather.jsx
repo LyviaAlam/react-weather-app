@@ -1,13 +1,14 @@
 import React, { useState } from "react";
 import axios from "axios";
-import DisplayDate from "./DisplayDate";
+import WeatherResult from "./WeatherResult";
 
 export default function Weather(props) {
-  const [city, setCity] = useState("");
-  const [responseData, setResponseData] = useState("");
+  const [city, setCity] = useState(props.defaultCity);
+  const [responseData, setResponseData] = useState({ ready: false });
 
   function handleWeatherApiResponse(response) {
     setResponseData({
+      ready: true,
       cityName: response.data.city,
       date: response.data.time,
       temp: Math.round(response.data.temperature.current),
@@ -35,61 +36,35 @@ export default function Weather(props) {
     axios.get(apiUrl).then(handleWeatherApiResponse);
   }
 
-  if (setResponseData) {
+  if (responseData.ready === true) {
     return (
       <div className="Weather">
         <div className="container">
           <form className="SearchMain" onSubmit={handleSubmit}>
-            <input
-              className="SearchBox"
-              type="text"
-              placeholder="Enter City name here..."
-              autoFocus="on"
-              onChange={updateCity}
-            />
-            <input className="SearchButton" type="submit" value="Search" />
-          </form>
-          <div className="row WeatherMain">
             <div className="row">
-              <div className="col text-start">
-                <ul>
-                  <li className="WeatherCity">{responseData.cityName}</li>
-                  <li className="WeatherTime">
-                    <DisplayDate date={responseData.date} />
-                  </li>
-                  <li className="WeatherCondition text-capitalize">
-                    {responseData.condition}
-                  </li>
-                </ul>
+              <div className="d-flex gap-2">
+                <input
+                  className="SearchBox form-control"
+                  type="text"
+                  placeholder="Enter City here..."
+                  autoFocus="on"
+                  onChange={updateCity}
+                />
+
+                <input
+                  className="SearchButton btn btn-success"
+                  type="submit"
+                  value="Search"
+                />
               </div>
             </div>
-          </div>
-          <div className="row WeatherMainSecondary">
-            <div className="col-3 WeatherIcon">
-              <img
-                src={responseData.weatherIcon}
-                alt={responseData.weatherIconAlt}
-              />
-            </div>
-            <div className="col-4 WeatherTemp">
-              <span className="WeatherTempNo">{responseData.temp}</span>
-              <span className="WeatherMetric">°C | °F</span>
-            </div>
-            <div className="col-5 text-start WeatherData">
-              <ul>
-                <li>Feel's like: {responseData.tempFeel}°C</li>
-                <li>Humidity: {responseData.humidity}%</li>
-                <li>Wind: {responseData.wind} km/h</li>
-              </ul>
-            </div>
-          </div>
+          </form>
+          <WeatherResult data={responseData} />
         </div>
       </div>
     );
   } else {
-    const apiKey = "143af7fd5b08cab06a8bf5bo4f3btde9";
-    const apiUrl = `https://api.shecodes.io/weather/v1/current?query=${props.defaultCity}&key=${apiKey}&units=metric`;
-    axios.get(apiUrl).then(handleWeatherApiResponse);
-    return "Loading...";
+    searchWeather();
+    return "Loading app...";
   }
 }

@@ -9,7 +9,9 @@ function App() {
   return (
     <>
       <div>
-        <h1>React Weather App</h1>
+        <h1>
+          <strong>React Weather App</strong>
+        </h1>
         <Weather defaultCity="Sydney" />
         <Footer />
       </div>

@@ -25,25 +25,21 @@ ul {
 }
 
 .container {
-  border: 2px solid pink;
+  border: 2px solid green;
   padding: 30px 50px;
   border-radius: 8px;
   width: 600px;
   margin-top: 20px;
 }
 .SearchMain {
-  padding-top: 10px;
-  padding-bottom: 10px;
+  padding: 10px 0px;
 }
 .SearchBox {
-  width: 75%;
-  padding-left: 10px;
-  margin-right: 10px;
   line-height: 30px;
 }
 .SearchButton {
-  width: 20%;
   line-height: 30px;
+  padding: 0 25px;
 }
 .WeatherMain {
   padding: 0;
@@ -55,10 +51,12 @@ ul {
 }
 .WeatherTime {
   font-size: 18px;
+  opacity: 70%;
 }
 .WeatherCondition {
   font-size: 25px;
   padding: 30px 0 10px;
+  font-weight: bold;
 }
 .WeatherIcon {
   padding: 0;
@@ -86,6 +84,6 @@ ul {
   font-size: 14px;
   padding-left: 40px;
   padding-top: 20px;
-  border-left: 2px solid pink;
+  border-left: 2px solid green;
   margin-left: 10px;
 }
