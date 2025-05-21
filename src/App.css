@@ -1,0 +1,17 @@
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+footer {
+  text-align: center;
+  font-size: 15px;
+  color: salmon;
+  padding-top: 30px;
+}
+
+a {
+  color: mediumaquamarine;
+}
