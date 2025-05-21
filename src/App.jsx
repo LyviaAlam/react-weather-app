@@ -9,9 +9,6 @@ function App() {
   return (
     <>
       <div>
-        <h1>
-          <strong>React Weather App</strong>
-        </h1>
         <Weather defaultCity="Sydney" />
         <Footer />
       </div>

@@ -7,15 +7,19 @@
   text-align: center;
 }
 
+body {
+  background-color: salmon;
+}
 footer {
   text-align: center;
   font-size: 15px;
-  color: salmon;
   padding-top: 30px;
+  color: white;
 }
 
 a {
-  color: mediumaquamarine;
+  color: grey;
+  font-weight: bold;
 }
 
 ul {
@@ -25,21 +29,27 @@ ul {
 }
 
 .container {
-  border: 2px solid green;
-  padding: 30px 50px;
-  border-radius: 8px;
-  width: 600px;
+  border: 2px solid salmon;
+  padding: 40px 65px;
+  border-radius: 20px;
+  width: 650px;
   margin-top: 20px;
+  background-color: white;
 }
 .SearchMain {
   padding: 10px 0px;
 }
 .SearchBox {
   line-height: 30px;
+  border: 1px solid;
+  border-color: salmon;
+  opacity: 80%;
 }
 .SearchButton {
   line-height: 30px;
   padding: 0 25px;
+  background-color: salmon;
+  color: white;
 }
 .WeatherMain {
   padding: 0;
@@ -48,6 +58,7 @@ ul {
   font-size: 70px;
   font-weight: bold;
   padding-top: 10px;
+  color: salmon;
 }
 .WeatherTime {
   font-size: 18px;
@@ -57,6 +68,7 @@ ul {
   font-size: 25px;
   padding: 30px 0 10px;
   font-weight: bold;
+  opacity: 80%;
 }
 .WeatherIcon {
   padding: 0;
@@ -69,6 +81,7 @@ ul {
   padding: 20px 0 0 20px;
   text-align: start;
   position: relative;
+  opacity: 80%;
 }
 .WeatherTempNo {
   font-size: 70px;
@@ -79,11 +92,13 @@ ul {
   font-size: 15px;
   position: absolute;
   top: 20px;
+  opacity: 80%;
 }
 .WeatherData {
   font-size: 14px;
   padding-left: 40px;
   padding-top: 20px;
-  border-left: 2px solid green;
+  border-left: 2px solid salmon;
   margin-left: 10px;
+  opacity: 75%;
 }
