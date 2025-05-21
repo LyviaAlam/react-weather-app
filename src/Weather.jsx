@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
+import DisplayDate from "./DisplayDate";
 
 export default function Weather(props) {
   const [city, setCity] = useState("");
@@ -8,7 +9,7 @@ export default function Weather(props) {
   function handleWeatherApiResponse(response) {
     setResponseData({
       cityName: response.data.city,
-      date: "Wednesday 15:10",
+      date: response.data.time,
       temp: Math.round(response.data.temperature.current),
       condition: response.data.condition.description,
       humidity: response.data.temperature.humidity,
@@ -53,7 +54,9 @@ export default function Weather(props) {
               <div className="col text-start">
                 <ul>
                   <li className="WeatherCity">{responseData.cityName}</li>
-                  <li className="WeatherTime">{responseData.date}</li>
+                  <li className="WeatherTime">
+                    <DisplayDate date={responseData.date} />
+                  </li>
                   <li className="WeatherCondition text-capitalize">
                     {responseData.condition}
                   </li>
