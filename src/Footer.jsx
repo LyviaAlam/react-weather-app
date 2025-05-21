@@ -4,14 +4,12 @@ export default function Footer() {
   return (
     <footer>
       <p>
-        This project was coded by
+        This project was coded by{" "}
         <a href="https://github.com/LyviaAlam" target="_blank">
-          {" "}
           Lyvia Alam
         </a>{" "}
-        and is
+        and is{" "}
         <a href="/" target="_blank">
-          {" "}
           on GitHub
         </a>{" "}
         and{" "}

@@ -17,3 +17,71 @@ footer {
 a {
   color: mediumaquamarine;
 }
+
+ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.container {
+  border: 2px solid pink;
+  padding: 30px;
+  border-radius: 8px;
+  width: 600px;
+  margin-top: 20px;
+}
+.SearchMain {
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+.SearchBox {
+  width: 78%;
+  padding-left: 10px;
+  margin-right: 10px;
+  line-height: 30px;
+}
+.SearchButton {
+  width: 20%;
+  line-height: 30px;
+}
+.WeatherMain {
+  padding: 0;
+}
+.WeatherCity {
+  font-size: 50px;
+  font-weight: bold;
+  padding-top: 10px;
+}
+.WeatherTime {
+  font-size: 18px;
+}
+.WeatherCondition {
+  font-size: 25px;
+  padding: 30px 0 10px;
+}
+.WeatherIcon {
+  padding: 0;
+  width: 80px;
+}
+.WeatherTemp {
+  font-weight: bold;
+  margin: 0;
+  padding: 0;
+  text-align: start;
+  position: relative;
+}
+.WeatherTempNo {
+  font-size: 70px;
+  line-height: 60px;
+}
+
+.WeatherMetric {
+  font-size: 15px;
+  position: absolute;
+  top: 0px;
+}
+.WeatherData {
+  font-size: 14px;
+  padding-left: 25px;
+}
