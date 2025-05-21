@@ -62,12 +62,13 @@ ul {
 }
 .WeatherIcon {
   padding: 0;
-  width: 80px;
+  max-width: 100px;
+  max-height: 100px;
 }
 .WeatherTemp {
   font-weight: bold;
   margin: 0;
-  padding: 0;
+  padding: 20px 0 0 20px;
   text-align: start;
   position: relative;
 }
@@ -79,11 +80,12 @@ ul {
 .WeatherMetric {
   font-size: 15px;
   position: absolute;
-  top: 0px;
+  top: 20px;
 }
 .WeatherData {
   font-size: 14px;
-  padding-left: 25px;
+  padding-left: 40px;
+  padding-top: 20px;
   border-left: 2px solid pink;
-  margin-left: 50px;
+  margin-left: 10px;
 }

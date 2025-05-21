@@ -1,23 +1,22 @@
 import React, { useState } from "react";
 import axios from "axios";
 
-export default function Weather() {
-  const [pageLoad, setPageLoad] = useState(true);
-  const [city, setCity] = useState(null);
+export default function Weather(props) {
+  const [city, setCity] = useState("");
   const [responseData, setResponseData] = useState("");
 
   function handleWeatherApiResponse(response) {
-    console.log(response.data);
     setResponseData({
       cityName: response.data.city,
+      date: "Wednesday 15:10",
       temp: Math.round(response.data.temperature.current),
       condition: response.data.condition.description,
       humidity: response.data.temperature.humidity,
       tempFeel: Math.round(response.data.temperature.feels_like),
       wind: Math.round(response.data.wind.speed),
+      weatherIcon: response.data.condition.icon_url,
+      weatherIconAlt: response.data.condition.icon,
     });
-
-    setPageLoad(true);
   }
 
   function updateCity(event) {
@@ -26,13 +25,16 @@ export default function Weather() {
 
   function handleSubmit(event) {
     event.preventDefault();
+    searchWeather();
+  }
+
+  function searchWeather() {
     const apiKey = "143af7fd5b08cab06a8bf5bo4f3btde9";
     const apiUrl = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}&units=metric`;
-
     axios.get(apiUrl).then(handleWeatherApiResponse);
   }
 
-  if (pageLoad) {
+  if (setResponseData) {
     return (
       <div className="Weather">
         <div className="container">
@@ -51,8 +53,10 @@ export default function Weather() {
               <div className="col text-start">
                 <ul>
                   <li className="WeatherCity">{responseData.cityName}</li>
-                  <li className="WeatherTime">Wednesday 15:10</li>
-                  <li className="WeatherCondition">{responseData.condition}</li>
+                  <li className="WeatherTime">{responseData.date}</li>
+                  <li className="WeatherCondition text-capitalize">
+                    {responseData.condition}
+                  </li>
                 </ul>
               </div>
             </div>
@@ -60,15 +64,15 @@ export default function Weather() {
           <div className="row WeatherMainSecondary">
             <div className="col-3 WeatherIcon">
               <img
-                src="https://ssl.gstatic.com/onebox/weather/64/rain_light.png"
-                alt="Cloud Rain"
+                src={responseData.weatherIcon}
+                alt={responseData.weatherIconAlt}
               />
             </div>
-            <div className="col-3 WeatherTemp">
+            <div className="col-4 WeatherTemp">
               <span className="WeatherTempNo">{responseData.temp}</span>
               <span className="WeatherMetric">°C | °F</span>
             </div>
-            <div className="col-6 text-start WeatherData">
+            <div className="col-5 text-start WeatherData">
               <ul>
                 <li>Feel's like: {responseData.tempFeel}°C</li>
                 <li>Humidity: {responseData.humidity}%</li>
@@ -80,6 +84,9 @@ export default function Weather() {
       </div>
     );
   } else {
-    return <p>Loading</p>;
+    const apiKey = "143af7fd5b08cab06a8bf5bo4f3btde9";
+    const apiUrl = `https://api.shecodes.io/weather/v1/current?query=${props.defaultCity}&key=${apiKey}&units=metric`;
+    axios.get(apiUrl).then(handleWeatherApiResponse);
+    return "Loading...";
   }
 }
