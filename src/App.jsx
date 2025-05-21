@@ -9,7 +9,7 @@ function App() {
   return (
     <>
       <div>
-        <h1>Weather App</h1>
+        <h1>React Weather App</h1>
         <Weather />
         <Footer />
       </div>
