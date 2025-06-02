@@ -59,10 +59,12 @@ ul {
   font-weight: bold;
   padding-top: 10px;
   color: salmon;
+  text-align: center;
 }
 .WeatherTime {
   font-size: 18px;
   opacity: 70%;
+  text-align: center;
 }
 .WeatherCondition {
   font-size: 25px;
@@ -94,11 +96,41 @@ ul {
   top: 20px;
   opacity: 80%;
 }
+
+/*Today's Weather Extra Data*/
+
 .WeatherData {
   font-size: 14px;
   padding-left: 40px;
   padding-top: 20px;
   border-left: 2px solid salmon;
   margin-left: 10px;
+  opacity: 75%;
+}
+
+/*ForecastCSS*/
+
+.WeatherForecastMain {
+  text-align: center;
+  padding-top: 20px;
+}
+
+.WeatherForecastDay {
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.WeatherForecastIcon {
+  max-width: 50px;
+  max-height: 50px;
+}
+.WeatherForecastTemp {
+  font-size: 14px;
+}
+.WeatherForecastMaxTemp {
+  font-weight: bold;
+}
+
+.WeatherForecastMinTemp {
   opacity: 75%;
 }
