@@ -6,18 +6,16 @@ export default function WeatherResult(props) {
   return (
     <div className="WeatherResult">
       <div className="row WeatherMain">
-        <div className="row">
-          <div className="col text-start">
-            <ul>
-              <li className="WeatherCity">{props.data.cityName}</li>
-              <li className="WeatherTime">
-                <DisplayDate date={props.data.date} />
-              </li>
-              <li className="WeatherCondition text-capitalize">
-                {props.data.condition}
-              </li>
-            </ul>
-          </div>
+        <div className="col text-start">
+          <ul>
+            <li className="WeatherCity">{props.data.cityName}</li>
+            <li className="WeatherTime">
+              <DisplayDate date={props.data.date} />
+            </li>
+            <li className="WeatherCondition text-capitalize">
+              {props.data.condition}
+            </li>
+          </ul>
         </div>
       </div>
       <div className="row WeatherMainSecondary">

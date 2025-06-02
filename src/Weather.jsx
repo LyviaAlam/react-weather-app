@@ -8,17 +8,18 @@ export default function Weather(props) {
   const [responseData, setResponseData] = useState({ ready: false });
 
   function handleWeatherApiResponse(response) {
+    let results = response.data;
     setResponseData({
       ready: true,
-      cityName: response.data.city,
-      date: response.data.time,
-      temp: Math.round(response.data.temperature.current),
-      condition: response.data.condition.description,
-      humidity: response.data.temperature.humidity,
-      tempFeel: Math.round(response.data.temperature.feels_like),
-      wind: Math.round(response.data.wind.speed),
-      weatherIcon: response.data.condition.icon_url,
-      weatherIconAlt: response.data.condition.icon,
+      cityName: results.city,
+      date: results.time,
+      temp: Math.round(results.temperature.current),
+      condition: results.condition.description,
+      humidity: results.temperature.humidity,
+      tempFeel: Math.round(results.temperature.feels_like),
+      wind: Math.round(results.wind.speed),
+      weatherIcon: results.condition.icon_url,
+      weatherIconAlt: results.condition.icon,
     });
   }
 
@@ -61,7 +62,7 @@ export default function Weather(props) {
             </div>
           </form>
           <WeatherResult data={responseData} />
-          <WeatherForecast />
+          <WeatherForecast data={responseData} />
         </div>
       </div>
     );
